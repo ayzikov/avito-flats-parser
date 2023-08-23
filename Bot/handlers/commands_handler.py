@@ -1,5 +1,5 @@
 # файлы проекта
-from AvitoFlatsParser.Bot.keyboards.main_menu_keyboard import main_menu_keyboard
+from keyboards.main_menu_keyboard import main_menu_keyboard
 
 # импорты aiogram
 from aiogram.filters import Command

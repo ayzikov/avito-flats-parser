@@ -3,9 +3,9 @@ import asyncio
 import aioschedule as schedule
 
 # файлы проекта
-from AvitoFlatsParser.Bot.other.FSMStates import SetParams
-from AvitoFlatsParser.Bot.keyboards.set_flat_filters_keyboards import set_flat_types_keyboard
-from AvitoFlatsParser.Bot.other.interval_parsing import start_parsing
+from other.FSMStates import SetParams
+from keyboards.set_flat_filters_keyboards import set_flat_types_keyboard
+from other.interval_parsing import start_parsing
 
 
 # импорты aiogram

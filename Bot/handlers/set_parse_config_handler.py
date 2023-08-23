@@ -1,7 +1,7 @@
 # файлы проекта
-from AvitoFlatsParser.Bot.other.FSMStates import SetParams
-from AvitoFlatsParser.AvitoParser.test_parser import AvitoFlatParser
-from AvitoFlatsParser.Bot.keyboards.main_menu_keyboard import main_menu_keyboard
+from other.FSMStates import SetParams
+from other.test_parser import AvitoFlatParser
+from keyboards.main_menu_keyboard import main_menu_keyboard
 
 
 # импорты aiogram
