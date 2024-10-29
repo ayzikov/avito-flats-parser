@@ -14,12 +14,12 @@ router = Router()
 
 @router.message(SetParams.flat_type)
 async def get_flat_types(message: Message, state: FSMContext):
-    ''' состояние выбора типа квартиры '''
+    """ Состояние выбора типа квартиры """
 
     # записываю какие типы квартир нужно парсить
     keywords = list()
 
-    # если пользователь ввел что нибудь, то добавляем это
+    # если пользователь ввел что-нибудь, то добавляем это
     # если же нет, то добавляем пустой список
     if message.text != 'Все':
         keywords.append(message.text)
@@ -36,7 +36,7 @@ async def get_flat_types(message: Message, state: FSMContext):
 
 @router.message(SetParams.price_from)
 async def get_flat_types(message: Message, state: FSMContext):
-    ''' состояние выбора начальной цены '''
+    """ Состояние выбора начальной цены """
 
     # записываю начальную цену
     await state.update_data(price_from=message.text)
@@ -50,7 +50,7 @@ async def get_flat_types(message: Message, state: FSMContext):
 
 @router.message(SetParams.price_to)
 async def get_flat_types(message: Message, state: FSMContext):
-    ''' состояние выбора конечной цены '''
+    """ Состояние выбора конечной цены """
 
     # записываю конечную цену
     await state.update_data(price_to=message.text)
@@ -64,7 +64,7 @@ async def get_flat_types(message: Message, state: FSMContext):
 
 @router.message(SetParams.commission)
 async def get_flat_types(message: Message, state: FSMContext):
-    ''' состояние выбора с комиссией или без '''
+    """ Состояние выбора с комиссией или без """
 
     # сбрасываем текущее состояние пользователя
     await state.set_state(state=None)

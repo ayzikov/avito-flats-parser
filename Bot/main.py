@@ -13,7 +13,6 @@ from aiogram import Bot
 from aiogram.fsm.storage.memory import MemoryStorage
 
 
-
 #загрузка виртуального окружения
 load_dotenv()
 
@@ -27,20 +26,19 @@ storage = MemoryStorage()
 bot = Bot(token)
 dp = Dispatcher(storage=storage)
 
-# регестрируем роутеры в боте
+# регистрируем роутеры в боте
 dp.include_router(commands_handler.router)
 dp.include_router(main_menu_handler.router)
 dp.include_router(set_parse_config_handler.router)
-
 
 # вывод логов в консоль
 logging.basicConfig(level=logging.INFO)
 
 
-
 # запускаем пулинг бота
 async def main() -> None:
     await dp.start_polling(bot)
+
 
 # запускаем функцию main() при активации главного файла
 if __name__ == "__main__":

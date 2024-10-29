@@ -1,12 +1,13 @@
 from aiogram.fsm.context import FSMContext
 
+
 async def start_parsing(message, parser, state: FSMContext):
-    '''
+    """
     Запуск парсера, получение ссылок и вывод их в чат с пользователем
     :param message: объект Message
     :param parser: объект парсера
     :return: None
-    '''
+    """
 
     # получаем 10 ссылок
     links = parser.start_parse()[:10]
@@ -26,10 +27,10 @@ async def start_parsing(message, parser, state: FSMContext):
 
 
 async def check_links(links: list, state: FSMContext):
-    '''
+    """
     на вход функции подается список со ссылками,
     она их фильрует возвращает ссылка которые еще не были отправлены пользователю
-    '''
+    """
 
     data = await state.get_data()
     prev_links = data.get('links', list())

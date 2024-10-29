@@ -30,7 +30,7 @@ async def set_parameters(message: Message, state: FSMContext):
 
 @router.message(F.text=='Начать парсинг')
 async def start_interval_parsing(message: Message, state: FSMContext):
-    ''' начало парсинга '''
+    """ начало парсинга """
 
     # получаем объект класса для парсинга
     data = await state.get_data()
