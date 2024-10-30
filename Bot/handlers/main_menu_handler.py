@@ -16,7 +16,8 @@ from aiogram.fsm.context import FSMContext
 
 router = Router()
 
-@router.message(F.text=='Задать параметры')
+
+@router.message(F.text == 'Задать параметры')
 async def set_parameters(message: Message, state: FSMContext):
 
     # поле нажатия на кнопку устанавливается состояние в котором бот ожидает от пользователя виды квартир
@@ -28,9 +29,9 @@ async def set_parameters(message: Message, state: FSMContext):
     await message.answer(text=text, reply_markup=markup)
 
 
-@router.message(F.text=='Начать парсинг')
+@router.message(F.text == 'Начать парсинг')
 async def start_interval_parsing(message: Message, state: FSMContext):
-    """ начало парсинга """
+    """ Начало парсинга """
 
     # получаем объект класса для парсинга
     data = await state.get_data()
@@ -49,6 +50,7 @@ async def start_interval_parsing(message: Message, state: FSMContext):
     except KeyError:
         text = 'Перед началом парсинга нужно задать параметры'
         await message.answer(text=text)
+
 
 @router.message(F.text=='Остановить парсинг')
 async def stop_interval_parsing(message: Message, state: FSMContext):

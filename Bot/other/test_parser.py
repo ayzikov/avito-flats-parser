@@ -27,7 +27,7 @@ class AvitoFlatParser:
         """ Установка опций и объявление драйвера """
         options = Options()
         # передаем настройку чтобы UI браузера не отображалось
-        # options.add_argument('----headless=new')
+        # options.add_argument('--headless=new')
 
         self.driver = uc.Chrome(options=options)
 
@@ -40,28 +40,28 @@ class AvitoFlatParser:
 
         if self.keywords:
             if 'Квартира-студия' in self.keywords:
-                self.driver.find_element(By.CSS_SELECTOR, "[data-marker='params[550](5702)/text']").click()
+                self.driver.find_element(By.XPATH, "//label[@data-marker='params[550](5702)/text']").click()
                 print('клик на студию')
             if '1-к. квартира' in self.keywords:
-                self.driver.find_element(By.CSS_SELECTOR, "[data-marker='params[550](5703)/text']").click()
+                self.driver.find_element(By.XPATH, "//label[@data-marker='params[550](5703)/text']").click()
                 print('клик на 1-к')
             if '2-к. квартира' in self.keywords:
-                self.driver.find_element(By.CSS_SELECTOR, "[data-marker='params[550](5704)/text']").click()
+                self.driver.find_element(By.XPATH, "//label[@data-marker='params[550](5704)/text']").click()
                 print('клик на 2-к')
             if '3-к. квартира' in self.keywords:
-                self.driver.find_element(By.CSS_SELECTOR, "[data-marker='params[550](5705)/text']").click()
+                self.driver.find_element(By.XPATH, "//label[@data-marker='params[550](5705)/text']").click()
                 print('клик на 3-к')
 
         if self.price_from:
-            self.driver.find_element(By.CSS_SELECTOR, "[data-marker='price-from']").send_keys(self.price_from)
+            self.driver.find_element(By.XPATH, "//label[@data-marker='price-from']").send_keys(self.price_from)
             print(f'ввод цены от {self.price_from}')
         if self.price_from:
-            self.driver.find_element(By.CSS_SELECTOR, "[data-marker='price/to']").send_keys(self.price_to)
+            self.driver.find_element(By.XPATH, "//label[@data-marker='price-to']").send_keys(self.price_to)
             print(f'ввод цены до {self.price_to}')
 
         if not self.commission:
-            self.driver.find_element(By.CSS_SELECTOR, "[data-marker='params[122383](1)/text']").click()
-            print('клик на без комиссии')
+            self.driver.find_element(By.XPATH, "//label[@data-marker='params[122383](1)/text']").click()
+            print('клик на "без комиссии"')
 
         # клик на поиск по заданным фильтрам
         self.driver.find_element(By.CSS_SELECTOR, "[data-marker='search-filters/submit-button']").click()
@@ -95,8 +95,8 @@ class AvitoFlatParser:
 parser = AvitoFlatParser(
         'https://www.avito.ru/sankt_peterburg_i_lo/kvartiry/sdam/na_dlitelnyy_srok-ASgBAgICAkSSA8gQ8AeQUg?context=H4sIAAAAAAAA_0q0MrSqLraysFJKK8rPDUhMT1WyLrYyNLNSKipNKspMTizJLwrPTElPLVGyrgUEAAD__95qJPwtAAAA&s=104',
         keywords=['Все'],
-        price_from=10000,
-        price_to=50000,
+        price_from=30000,
+        price_to=40000,
         commission=True)
 
 parser.set_config()

@@ -70,7 +70,7 @@ async def get_flat_types(message: Message, state: FSMContext):
     await state.set_state(state=None)
 
     # записываю нужна ли комиссия
-    if message.text == 'Да':
+    if message.text.lower() == 'да' or 'if':
         await state.update_data(commission=True)
     else:
         await state.update_data(commission=False)
@@ -94,9 +94,11 @@ async def get_flat_types(message: Message, state: FSMContext):
 
     # устанавливаем параметры для парсинга
     if parser.set_config():
-
-
         text = 'Параметры для поиска установлены'
-        markup = await main_menu_keyboard()
-        await message.answer(text=text, reply_markup=markup)
+    else:
+        text = ('При установки параметров произошла ошибка\n'
+                'Попробуйте позже или обратитесь к разработчику\n'
+                '@Ayzikov')
 
+    markup = await main_menu_keyboard()
+    await message.answer(text=text, reply_markup=markup)
