@@ -27,7 +27,7 @@ class AvitoFlatParser:
         """ Установка опций и объявление драйвера """
         options = Options()
         # передаем настройку чтобы UI браузера не отображалось
-        # options.add_argument('--headless=new')
+        options.add_argument('--headless=new')
 
         self.driver = uc.Chrome(options=options)
 
@@ -53,10 +53,14 @@ class AvitoFlatParser:
                 print('клик на 3-к')
 
         if self.price_from:
-            self.driver.find_element(By.XPATH, "//label[@data-marker='price-from']").send_keys(self.price_from)
+            elem = self.driver.find_element(By.XPATH, "//input[@data-marker='price-from/input']")
+            # ввод цены по одному символу
+            [elem.send_keys(num) for num in str(self.price_from)]
             print(f'ввод цены от {self.price_from}')
-        if self.price_from:
-            self.driver.find_element(By.XPATH, "//label[@data-marker='price-to']").send_keys(self.price_to)
+        if self.price_to:
+            elem = self.driver.find_element(By.XPATH, "//input[@data-marker='price-to/input']")
+            # ввод цены по одному символу
+            [elem.send_keys(num) for num in str(self.price_to)]
             print(f'ввод цены до {self.price_to}')
 
         if not self.commission:
@@ -92,14 +96,17 @@ class AvitoFlatParser:
         return self.__parse_page()
 
 
-parser = AvitoFlatParser(
-        'https://www.avito.ru/sankt_peterburg_i_lo/kvartiry/sdam/na_dlitelnyy_srok-ASgBAgICAkSSA8gQ8AeQUg?context=H4sIAAAAAAAA_0q0MrSqLraysFJKK8rPDUhMT1WyLrYyNLNSKipNKspMTizJLwrPTElPLVGyrgUEAAD__95qJPwtAAAA&s=104',
-        keywords=['Все'],
-        price_from=30000,
-        price_to=40000,
-        commission=True)
+# ТЕСТ
+# для теста раскомментировать этот блок кода и запустить main.py
 
-parser.set_config()
-print(*parser.start_parse(), sep='\n\n')
+# parser = AvitoFlatParser(
+#         'https://www.avito.ru/sankt_peterburg_i_lo/kvartiry/sdam/na_dlitelnyy_srok-ASgBAgICAkSSA8gQ8AeQUg?context=H4sIAAAAAAAA_0q0MrSqLraysFJKK8rPDUhMT1WyLrYyNLNSKipNKspMTizJLwrPTElPLVGyrgUEAAD__95qJPwtAAAA&s=104',
+#         keywords=['Все'],
+#         price_from=30000,
+#         price_to=40000,
+#         commission=True)
+#
+# parser.set_config()
+# print(*parser.start_parse(), sep='\n\n')
 
 
