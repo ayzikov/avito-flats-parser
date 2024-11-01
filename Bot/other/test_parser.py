@@ -26,9 +26,8 @@ class AvitoFlatParser:
     def __set_up(self):
         """ Установка опций и объявление драйвера """
         options = Options()
-        # передаем настройку чтобы UI браузера не отображалось и браузер не закрывался
+        # передаем настройку чтобы UI браузера не отображалось
         options.add_argument('--headless=new')
-        options.add_experimental_option("detach", True)
 
         self.driver = uc.Chrome(options=options)
 
