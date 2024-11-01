@@ -27,7 +27,7 @@ class AvitoFlatParser:
         """ Установка опций и объявление драйвера """
         options = Options()
         # передаем настройку чтобы UI браузера не отображалось
-        # options.add_argument('--headless=new')
+        options.add_argument('--headless=new')
         # Отключить использование GPU
         options.add_argument("--disable-gpu")
         # Отключение общей памяти (уменьшает использование RAM)
