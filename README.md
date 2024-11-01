@@ -2,7 +2,7 @@
 A bot that parses avito and sends links with the latest apartments posted
 
 # Что изменилось
-- исправил баг с вводом цены
+- Dockerfile and docker-compose
 
 # Задачи
 - [ ] деплой
