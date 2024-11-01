@@ -104,14 +104,14 @@ class AvitoFlatParser:
 # ТЕСТ
 # для теста раскомментировать этот блок кода и запустить main.py
 
-parser = AvitoFlatParser(
-        'https://www.avito.ru/sankt_peterburg_i_lo/kvartiry/sdam/na_dlitelnyy_srok-ASgBAgICAkSSA8gQ8AeQUg?context=H4sIAAAAAAAA_0q0MrSqLraysFJKK8rPDUhMT1WyLrYyNLNSKipNKspMTizJLwrPTElPLVGyrgUEAAD__95qJPwtAAAA&s=104',
-        keywords=['Все'],
-        price_from=30000,
-        price_to=40000,
-        commission=True)
-
-parser.set_config()
-print(*parser.start_parse(), sep='\n\n')
+# parser = AvitoFlatParser(
+#         'https://www.avito.ru/sankt_peterburg_i_lo/kvartiry/sdam/na_dlitelnyy_srok-ASgBAgICAkSSA8gQ8AeQUg?context=H4sIAAAAAAAA_0q0MrSqLraysFJKK8rPDUhMT1WyLrYyNLNSKipNKspMTizJLwrPTElPLVGyrgUEAAD__95qJPwtAAAA&s=104',
+#         keywords=['Все'],
+#         price_from=30000,
+#         price_to=40000,
+#         commission=True)
+#
+# parser.set_config()
+# print(*parser.start_parse(), sep='\n\n')
 
 
